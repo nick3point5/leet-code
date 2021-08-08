@@ -32,4 +32,4 @@ var addTwoNumbers = function(l1, l2) {
   return solution.next
 };
 
-console.log(addTwoNumbers())
+// https://leetcode.com/problems/add-two-numbers

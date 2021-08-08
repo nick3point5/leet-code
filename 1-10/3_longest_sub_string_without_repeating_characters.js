@@ -32,4 +32,4 @@ var lengthOfLongestSubstring = function(s) {
     return longest.length
 };
 
-console.log(lengthOfLongestSubstring("ohvhjdml"))
+// https://leetcode.com/problems/longest-substring-without-repeating-characters
