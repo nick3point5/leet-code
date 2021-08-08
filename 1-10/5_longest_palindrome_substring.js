@@ -4,6 +4,7 @@ var longestPalindrome = function (s) {
   }
 
   const array = s.split("")
+  const rs = s.split("").reverse().join("")
   let longest = ""
 
   const letters = {}
@@ -17,7 +18,8 @@ var longestPalindrome = function (s) {
       for (let j = 0; j < letters[letter].length; j++) {
         if (longest.length <= i - letters[letter][j]) {
           const substring = s.slice(letters[letter][j], i + 1)
-          if (isPalindrome(substring)) {
+          const reverseSubstring = rs.slice(array.length-1-i, array.length-letters[letter][j])
+          if (substring === reverseSubstring) {
             longest = substring
           }
         }
