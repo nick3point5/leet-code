@@ -1,5 +1,5 @@
 var intToRoman = function(num) {
-    numerals = {
+    const numerals = {
       "0" : "",
       "1" : "I",
       "2" : "II",
