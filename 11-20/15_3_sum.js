@@ -25,7 +25,6 @@ var threeSum = function (nums) {
       }
     }
   }
-
   return result
 };
 
