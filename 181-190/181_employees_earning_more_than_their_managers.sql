@@ -8,7 +8,7 @@ SELECT
 FROM
     Employee AS proletariat,
     Employee AS bourgeoisie 
--- we filter what our tables will have.
+-- filter what our tables will have.
 WHERE
 --  checks if the proletariat has a bourgeoisie
     proletariat.ManagerId = bourgeoisie.Id
