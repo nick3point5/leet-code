@@ -1,10 +1,13 @@
 var mergeKLists = function(lists) {
-  if(!lists.length)return new ListNode().next
-  mergeList = lists[0]
-  for(let i=1;i < lists.length; i++) {
-      mergeList = mergeTwoLists(mergeList,lists[i])
-  }
-    return mergeList
+  if (lists.length===0) return null
+  if (lists.length===1) return lists[0]
+  
+  let m = Math.floor(lists.length/2)
+
+  let l1 = mergeKLists(lists.slice(0,m))
+  let l2 = mergeKLists(lists.slice(m))
+  
+  return mergeTwoLists(l1, l2)
 };
 
 var mergeTwoLists = function(l1, l2) {
