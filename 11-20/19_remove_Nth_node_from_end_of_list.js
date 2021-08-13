@@ -4,41 +4,28 @@ function ListNode(val, next) {
 }
 
 var removeNthFromEnd = function (head, n) {
-  let node = head
-  let right = undefined
-  let left = undefined
+  let array =[]
+  let node =  head
   let newNode = undefined
-  let nodeLength = 0
 
-  for (let i = 0; node.next; i++) {    
-    node = node.next
-    nodeLength++
+  if (!node.next) return node.next
+
+  while(node != null) {
+    array.push(node)
+    node = node.next;
   }
 
-  if (!nodeLength) {
-    return node.next
+  for(let i = 0; i <= n; i++) {
+    newNode = array.pop()
   }
 
-  node = head
-
-  for (let i = 0; i < nodeLength + 1; i++) {
-    if (i < nodeLength-n+1) {
-      left = new ListNode(node.val,left)
-    } else if (i > nodeLength-n+1) {
-      right = new ListNode(node.val,right)
-    }
-    node = node.next
+  if(newNode == null) {
+    head = head.next;
+  } else if(newNode.next != null ) {
+    newNode.next = newNode.next.next;    
+  } else {
+    newNode.next = null;
   }
 
-  for (let i = 0; i < nodeLength + 1; i++) {
-    if (i < n-1) {
-      newNode = new ListNode(right.val,newNode)
-      right = right.next
-    } else if (i >= n) {
-      newNode = new ListNode(left.val,newNode)
-      left = left.next
-    }
-  }
-
-  return newNode
+  return head;
 };
