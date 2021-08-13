@@ -2,7 +2,7 @@ var convert = function (s, numRows) {
   if (numRows === 1) {
     return s
   }
-  
+
   let result = ""
 
   if (numRows === 2) {

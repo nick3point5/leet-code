@@ -4,25 +4,25 @@ function ListNode(val, next) {
 }
 
 var removeNthFromEnd = function (head, n) {
-  let array =[]
-  let node =  head
+  let array = []
+  let node = head
   let newNode = undefined
 
   if (!node.next) return node.next
 
-  while(node != null) {
+  while (node != null) {
     array.push(node)
     node = node.next;
   }
 
-  for(let i = 0; i <= n; i++) {
+  for (let i = 0; i <= n; i++) {
     newNode = array.pop()
   }
 
-  if(newNode === null) {
+  if (newNode === null) {
     head = head.next;
-  } else if(newNode.next != null ) {
-    newNode.next = newNode.next.next;    
+  } else if (newNode.next != null) {
+    newNode.next = newNode.next.next;
   } else {
     newNode.next = null;
   }

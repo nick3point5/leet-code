@@ -1,9 +1,9 @@
 function ListNode(val, next) {
-      this.val = (val===undefined ? 0 : val)
-      this.next = (next===undefined ? null : next)
+  this.val = (val === undefined ? 0 : val)
+  this.next = (next === undefined ? null : next)
 }
 
-var mergeTwoLists = function(l1, l2) {
+var mergeTwoLists = function (l1, l2) {
   let node = new ListNode()
   let newNode = node
 
@@ -18,9 +18,9 @@ var mergeTwoLists = function(l1, l2) {
     node = node.next;
   }
 
-  if(l1 === null) {
+  if (l1 === null) {
     node.next = l2;
-  } else if(l2 === null) {
+  } else if (l2 === null) {
     node.next = l1;
   }
 

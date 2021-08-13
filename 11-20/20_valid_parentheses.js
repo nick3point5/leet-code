@@ -1,4 +1,4 @@
-var isValid = function(s) {
+var isValid = function (s) {
   lastString = ""
   while (lastString !== s) {
     lastString = s

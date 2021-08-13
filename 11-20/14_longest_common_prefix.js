@@ -1,4 +1,4 @@
-var longestCommonPrefix = function(strs) {
+var longestCommonPrefix = function (strs) {
   if (strs.length < 2) {
     return strs[0]
   }

@@ -13,16 +13,16 @@ var longestPalindrome = function (s) {
     if (!letters[letter]) {
       letters[letter] = []
     } else {
-        for (let j = 0; j < letters[letter].length; j++) {
-          if (longest.length <= i - letters[letter][j]) {
-            const substring = s.slice(letters[letter][j], i + 1)
-            const reverseSubstring = rs.slice(array.length - 1 - i, array.length - letters[letter][j])
-            if (substring === reverseSubstring) {
-              longest = substring
-            }
+      for (let j = 0; j < letters[letter].length; j++) {
+        if (longest.length <= i - letters[letter][j]) {
+          const substring = s.slice(letters[letter][j], i + 1)
+          const reverseSubstring = rs.slice(array.length - 1 - i, array.length - letters[letter][j])
+          if (substring === reverseSubstring) {
+            longest = substring
           }
         }
       }
+    }
     letters[letter].push(i)
   }
 

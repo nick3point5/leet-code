@@ -13,7 +13,7 @@ var threeSumClosest = function (nums, target) {
 
       if (sum === target) return sum
 
-      const difference = target-sum
+      const difference = target - sum
 
       if (difference ** 2 < minimum ** 2) {
         minimum = difference

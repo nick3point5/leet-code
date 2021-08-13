@@ -1,4 +1,4 @@
-var fourSum = function(nums, target) {
+var fourSum = function (nums, target) {
   if (nums.length < 4) {
     return []
   }
@@ -9,7 +9,7 @@ var fourSum = function(nums, target) {
 
   for (let i = 0; i < nums.length - 2; i++) {
     if (nums[i] != nums[i - 1]) {
-      const  threeSum = threeSumWithTarget(nums.slice(i+1),target-nums[i])
+      const threeSum = threeSumWithTarget(nums.slice(i + 1), target - nums[i])
       if (threeSum.length) {
         for (let j = 0; j < threeSum.length; j++) {
           result.push([nums[i]].concat(threeSum[j]));
@@ -41,7 +41,7 @@ var threeSumWithTarget = function (nums, target) {
           right--
           while (nums[left] === nums[left - 1]) left++
           while (nums[right] === nums[right + 1]) right--
-        }else{
+        } else {
           sum > target ? right-- : left++
         }
       }
