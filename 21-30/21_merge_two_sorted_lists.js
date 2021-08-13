@@ -4,28 +4,27 @@ function ListNode(val, next) {
 }
 
 var mergeTwoLists = function(l1, l2) {
-  let nodeArray = []
-  let newNode = null
-  while (hasValue(l1) || hasValue(l2)) {
-    if (hasValue(l1)) {
-      nodeArray.unshift(l1.val)
-        l1 = l1.next
+  let node = new ListNode()
+  let newNode = node
+
+  while (l1 !== null && l2 !== null) {
+    if (l1.val <= l2.val) {
+      node.next = l1
+      l1 = l1.next;
+    } else {
+      node.next = l2;
+      l2 = l2.next;
     }
-    if (hasValue(l2)){
-      nodeArray.unshift(l2.val)
-        l2 = l2?.next
-    }
+    node = node.next;
   }
 
-  nodeArray.sort((a, b) => b - a)
-
-  for (let i = 0; i < nodeArray.length; i++) {
-    newNode = new ListNode(nodeArray[i], newNode)
+  if(l1 === null) {
+    node.next = l2;
+  } else if(l2 === null) {
+    node.next = l1;
   }
 
-  return newNode
+  return newNode.next
 };
 
-function hasValue(node) {
-  return !!(node?.val || node?.val === 0)
-}
+// https://leetcode.com/problems/merge-two-sorted-lists/
