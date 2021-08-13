@@ -50,6 +50,4 @@ var threeSumWithTarget = function (nums, target) {
   return result
 };
 
-nums = [-3,-2,-1,0,0,1,2,3], target = 0
-
-console.log(fourSum(nums, target))
+// https://leetcode.com/problems/4sum/

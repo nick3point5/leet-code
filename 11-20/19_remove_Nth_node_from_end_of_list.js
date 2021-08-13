@@ -19,7 +19,7 @@ var removeNthFromEnd = function (head, n) {
     newNode = array.pop()
   }
 
-  if(newNode == null) {
+  if(newNode === null) {
     head = head.next;
   } else if(newNode.next != null ) {
     newNode.next = newNode.next.next;    
