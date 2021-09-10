@@ -1,7 +1,9 @@
 var findSubstring = function (s, words) {
 	const result = [];
 
-	for (let i = 0; i < s.length; i++) {
+	const subStringSize = words.map(word => word.length).reduce((acc, num) => acc+num)
+
+	for (let i = 0; i < s.length-subStringSize+1; i++) {
 		currentString = s.slice(i, s.length);
 		if (isNext(currentString, words)) {
 			result.push(i);
@@ -12,17 +14,17 @@ var findSubstring = function (s, words) {
 };
 
 function isNext(s, words) {
-	const match = findMatch(s, words);
+	let newWords = words;
+	let newString = s;
 
-	if (!match) return false;
+	for (let i = 0; i < words.length; i++) {
+		const match = findMatch(newString, newWords);
+		if (!match) return false;
+		newWords = getNewWords(match, newWords);
+		newString = newString.slice(match.length, newString.length);
+	}
 
-	const newWords = getNewWords(match, words);
-	const newString = s.slice(match.length, s.length);
-
-	if (newWords.length === 0) return true;
-	if (isNext(newString, newWords)) return true;
-
-	return false;
+	return true;
 }
 
 function getNewWords(word, words) {
@@ -42,7 +44,5 @@ function findMatch(s, words){
   }
 }
 
-s = "barfoofoobarthefoobarman"
-words = ["bar","foo","the"]
 
-console.log(findSubstring(s, words));
+// https://leetcode.com/problems/substring-with-concatenation-of-all-words/
