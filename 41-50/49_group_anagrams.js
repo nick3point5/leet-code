@@ -1,16 +1,15 @@
 var groupAnagrams = function(strs) {
-  const map = {}
-  const result=[]
-  strs.forEach((str)=>{
-      const sorted = [[...str].sort().join("")]
-      if(!map[sorted]) map[sorted] =[]
-      map[sorted].push(str) 
-      }
-  )
-  for(const key in map){
-      result.push(map[key])
-  }
-  return result
+  const map = new Map()
+  for (const str of strs) {
+    const sorted = [...str].sort().join("")
+        if(!map.has(sorted)) {
+            map.set(sorted, [str])
+        }else{
+            map.get(sorted).push(str);
+        }
+    }
+
+  return [...map.values()]
 };
 
 // https://leetcode.com/problems/group-anagrams/
