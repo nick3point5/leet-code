@@ -1,17 +1,19 @@
-var findSubstring = function (s, words) {
-	const result = [];
+function findMatch(s, words){
+  for (let i = 0; i < words.length; i++) {
+    if(words[i] === s.slice(0, words[i].length)) return words[i]
+  }
+}
 
-	const subStringSize = words.map(word => word.length).reduce((acc, num) => acc+num)
-
-	for (let i = 0; i < s.length-subStringSize+1; i++) {
-		currentString = s.slice(i, s.length);
-		if (isNext(currentString, words)) {
-			result.push(i);
-		}
-	}
-
-	return result;
-};
+function getNewWords(word, words) {
+  for (let i = 0; i < words.length; i++) {
+    if (words[i] === word) {
+      const left = words.slice(0, i)
+      const right = words.slice(i+1)
+      return left.concat(right)
+    }
+  }
+  return words
+}
 
 function isNext(s, words) {
 	let newWords = words;
@@ -27,22 +29,19 @@ function isNext(s, words) {
 	return true;
 }
 
-function getNewWords(word, words) {
-  for (let i = 0; i < words.length; i++) {
-    if (words[i] === word) {
-      const left = words.slice(0, i)
-      const right = words.slice(i+1)
-      return left.concat(right)
-    }
-  }
-  return words
-}
+var findSubstring = function (s, words) {
+	const result = [];
 
-function findMatch(s, words){
-  for (let i = 0; i < words.length; i++) {
-    if(words[i] === s.slice(0, words[i].length)) return words[i]
-  }
-}
+	const subStringSize = words.length*words[0].length
 
+	for (let i = 0; i < s.length-subStringSize+1; i++) {
+		currentString = s.slice(i, s.length);
+		if (isNext(currentString, words)) {
+			result.push(i);
+		}
+	}
+
+	return result;
+};
 
 // https://leetcode.com/problems/substring-with-concatenation-of-all-words/

@@ -3,6 +3,12 @@ var generateParenthesis = function(n) {
   //   "(":1,
   //   ")":-1
   // }
+for (const key in object) {
+  if (Object.hasOwnProperty.call(object, key)) {
+    const element = object[key];
+    
+  }
+}
 
   // array = ["()"]
 
