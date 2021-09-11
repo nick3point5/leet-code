@@ -8,7 +8,6 @@ var groupAnagrams = function(strs) {
             map.get(sorted).push(str);
         }
     }
-
   return [...map.values()]
 };
 
