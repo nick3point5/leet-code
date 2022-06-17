@@ -54,7 +54,7 @@ function reverseLinkedList(head) {
 function depthReverse(current, previous) {
 	let first = null
 	if (current.next !== null) {
-		;[first, newLink] = depthReverse(current.next, current)
+		[first, newLink] = depthReverse(current.next, current)
 	} else {
 		current.next = new ListNode(previous.val, null)
 		return [current, current.next]
